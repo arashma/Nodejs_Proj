@@ -8,4 +8,9 @@ pids
 logs
 results
 express_website/node_modules
+mettup/node_modules
+nodeauth/node_modules
+nodeBlog/node_modules
+NoteApp/node_modules
+simpleserver/node_modules
 .node_history

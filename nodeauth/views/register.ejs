@@ -1,0 +1,79 @@
+
+
+<!DOCTYPE html>
+<html>
+<% include partial/header.ejs %>
+<body>
+
+<% include partial/nav.ejs %>
+<%var context = [];%>
+   <%  function obj(value){
+    var context = [];
+      for(error of errors){
+         if(error.param == value){
+          return error;
+           }
+   }
+   } %>
+
+<div class="container">
+    <h2 class="page-header"><%=title%></h2>
+    <p>Please register using the form below</p>
+    <form method="post" action="/users/register" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" name="name" type="text" placeholder="Enter Name" />
+            <%if (obj('name')){%>
+            <div class="alert alert-warning">
+                <strong><%= obj('name').msg;%></strong>
+            </div>
+            <%}%>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" name="email" type="email" placeholder="Enter Email" />
+            <%if (obj('email')){%>
+            <div class="alert alert-warning">
+                <strong><%= obj('email').msg;%></strong>
+            </div>
+            <%}%>
+        </div>
+        <div class="form-group">
+            <label>Username</label>
+            <input class="form-control" name="username" type="text" placeholder="Enter Username" />
+            <%if (obj('username')){%>
+            <div class="alert alert-warning">
+                <strong><%= obj('username').msg%></strong>
+            </div>
+            <%}%>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input class="form-control" name="password" type="password" placeholder="Enter Password" />
+            <%if (obj('password')){%>
+            <div class="alert alert-warning">
+                <strong><%= obj('password').msg;%></strong>
+            </div>
+            <%}%>
+        </div>
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input class="form-control" name="password2" type="password" placeholder="Confirm Password" />
+            <%if (obj('password2')){%>
+            <div class="alert alert-warning">
+                <strong><%= obj('password2').msg;%></strong>
+            </div>
+            <%}%>
+        </div>
+        <div class="form-group">
+            <label>Profile Image</label>
+            <input class="form-control" name="profileimage" type="file" />
+        </div>
+        <input class="btn btn-primary" type="submit" name="submit" value="Register" />
+    </form>
+
+
+</div>
+
+</body>
+</html>
